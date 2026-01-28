@@ -4,7 +4,14 @@ import { RiArrowDropDownFill } from 'react-icons/ri';
 import CallDetails from './CallDetails';
 
 const CallList = () => {
-const [selectedCall, setSelectedCall] = useState(0);
+    const [selectedCall, setSelectedCall] = useState(0);
+    const [showDetails, setShowDetails] = useState(false);
+
+    const handleCallClick = (index) => {
+        setSelectedCall(index);
+        setShowDetails(true);
+    };
+
     const callData = [
         {
             id: 1,
@@ -122,6 +129,7 @@ const [selectedCall, setSelectedCall] = useState(0);
 
 
 
+    
     return (
         <div>
             <div>
@@ -154,8 +162,8 @@ const [selectedCall, setSelectedCall] = useState(0);
                 </div>
             </div>
             <div className='p-4'>
-                <div className='grid grid-cols-12 gap-4 '>
-                    <div className=' col-span-5 h-135 border bg-[#111B3C]  rounded-lg border-[#2B7FFF33]'>
+                <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 '>
+                    <div className={`lg:col-span-5 h-135 border bg-[#111B3C] rounded-lg border-[#2B7FFF33] ${showDetails ? 'hidden lg:block' : 'block'}`}>
                         <div>
                             <h1 className='text-[20px] text-[#FFFFFF] font-medium p-3'>Call List</h1>
                             <div className='border-b border-[#2B7FFF33]'></div>
@@ -164,7 +172,7 @@ const [selectedCall, setSelectedCall] = useState(0);
                             {
                                 callData.map((data, index) => {
                                     return (
-                                        <div key={index} onClick={() => setSelectedCall(index)} className='p-3 border-b last:border-b-0 active:border-b-2 active:border-[#2B7FFF] border-[#2B7FFF33] cursor-pointer '>
+                                        <div key={index} onClick={() => handleCallClick(index)} className='p-3 border-b last:border-b-0 active:border-b-2 active:border-[#2B7FFF] border-[#2B7FFF33] cursor-pointer '>
                                             <div className='flex justify-between'>
                                                 <div className='flex items-center gap-2'>
                                                     <div>
@@ -205,8 +213,12 @@ const [selectedCall, setSelectedCall] = useState(0);
                             }
                         </div>
                     </div>
-                    <div className='col-span-7 border bg-[#111B3C]  rounded-lg border-[#2B7FFF33]'>
-                        <CallDetails currentCall={currentCall} statusStyles={statusStyles}></CallDetails>
+                    <div className={`lg:col-span-7 border bg-[#111B3C] rounded-lg border-[#2B7FFF33] ${showDetails ? 'block' : 'hidden lg:block'}`}>
+                        <CallDetails
+                            currentCall={currentCall}
+                            statusStyles={statusStyles}
+                            onBack={() => setShowDetails(false)}
+                        />
                     </div>
                 </div>
             </div>

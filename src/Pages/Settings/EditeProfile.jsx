@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiEdit } from 'react-icons/fi';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { useUser } from '../../Context/UserContext';
 
 

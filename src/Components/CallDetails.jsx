@@ -1,14 +1,19 @@
-import { FileText, Play } from 'lucide-react';
+import { FileText, Play, ArrowLeft } from 'lucide-react';
 import React from 'react';
 
-const CallDetails = ({ currentCall, statusStyles }) => {
+const CallDetails = ({ currentCall, statusStyles, onBack }) => {
     return (
         <div>
             <div>
 
                 <div className="flex-1 flex flex-col min-w-0 min-h-0 overflow-y-auto custom-scrollbar">
                     <div>
-                        <h1 className='text-[20px] text-[#FFFFFF] font-medium p-3'>Call Details</h1>
+                        <div className="flex items-center gap-2 p-3">
+                            <button onClick={onBack} className="lg:hidden text-white hover:bg-white/10 p-1 rounded-full transition-colors">
+                                <ArrowLeft size={24} />
+                            </button>
+                            <h1 className='text-[20px] text-[#FFFFFF] font-medium'>Call Details</h1>
+                        </div>
                         <div className='border-b border-[#2B7FFF33]'></div>
                     </div>
 

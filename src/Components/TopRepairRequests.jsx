@@ -9,7 +9,7 @@ const TopRepairRequests = () => {
     ];
 
     return (
-        <div className="bg-[#111B3C] h-92 rounded-lg p-6 border border-[#2B7FFF33]">
+        <div className="bg-[#111B3C] h-auto lg:h-92 rounded-lg p-6 border border-[#2B7FFF33]">
             <h3 className="text-[20px] font-semibold text-[#FFFFFF] mb-4">Top Repair Requests</h3>
             <div className="space-y-4">
                 {requests.map((request) => (

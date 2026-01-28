@@ -1,8 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './Layout/Root.jsx';
 import Home from './Pages/Home/Home.jsx';
 import CallLogs from './Pages/CallLogs/CallLogs.jsx';
@@ -18,22 +17,22 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element:<Home></Home>
+        element: <Home></Home>
       },
-       {
-        path:'/call-logs',
+      {
+        path: '/call-logs',
         element: <CallLogs></CallLogs>
       },
-       {
-        path:'/appointments',
+      {
+        path: '/appointments',
         element: <Appointments></Appointments>
       },
-       {
-        path:'/settings',
+      {
+        path: '/settings',
         element: <Settings></Settings>
       },
-       {
-        path:'/edite',
+      {
+        path: '/edite',
         element: <EditeProfile></EditeProfile>
       },
     ],
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <UserProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </UserProvider>
   </StrictMode>,
 )

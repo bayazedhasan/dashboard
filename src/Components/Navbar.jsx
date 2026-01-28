@@ -1,8 +1,8 @@
 import React from 'react';
-import { FiBell } from 'react-icons/fi';
-import { Link, useLocation } from 'react-router';
+import { FiBell, FiMenu } from 'react-icons/fi';
+import { Link, useLocation } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
 
     const location = useLocation();
 
@@ -29,7 +29,13 @@ const Navbar = () => {
     return (
         <div className="bg-[#111B3C] sticky top-0 z-10">
             <div className="px-6 py-2 flex justify-between items-center">
-                <div>
+                <div className="flex items-center">
+                    <button
+                        onClick={toggleSidebar}
+                        className="p-2 mr-2 lg:hidden text-white hover:bg-white/10 rounded-lg transition-colors"
+                    >
+                        <FiMenu className="w-6 h-6" />
+                    </button>
                     <h1 className="text-xl font-semibold text-white">{title}</h1>
                 </div>
                 <div className="flex items-center gap-4">
@@ -38,13 +44,13 @@ const Navbar = () => {
                     </button>
                     <div >
                         <Link to="/settings">
-                        <div className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
-                                <img
-                                    alt="Tailwind CSS Navbar component"
-                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            <div className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        alt="Tailwind CSS Navbar component"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                </div>
                             </div>
-                        </div>
                         </Link>
                     </div>
                 </div>
